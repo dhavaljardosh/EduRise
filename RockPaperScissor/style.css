@@ -1,0 +1,71 @@
+#score-board{
+    border:2px solid red;
+    width:400px;
+    margin:auto;
+    display:flex;
+    justify-content: space-around;
+    padding:20px;
+}
+
+#play-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding:20px;
+}
+
+#play-area div{
+    height:80px;
+    width:80px;
+    background:white;
+    box-shadow: 0px 0px 5px gray;
+    border-radius: 50%;
+    padding:20px;
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#play-area div img{
+    height:100%;
+    -webkit-filter: drop-shadow(0px 2px 2px white);
+  filter: drop-shadow(0px 2px 2px white);
+}
+
+img{
+    height:100%;
+}
+
+#vs-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+#vs-box div{
+    margin: 20px;
+    background: darkorange;
+    padding:20px;
+}
+
+#vs-box div .img-container{
+    width:80px;
+    height:80px;
+}
+
+.my-score, .bot-score{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.my-score div, .bot-score div{
+    font-size: 25px;
+}
+
+.my-score #my-score, .bot-score #computer-score{
+    font-size: 40px;
+    font-family: fantasy
+}
