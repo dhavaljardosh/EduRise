@@ -88,7 +88,7 @@ window.onload = function () {
      * Main funtion which triggers everytime we click on
      * the icons.
      */
-    function main() {
+    // function main() {
         Rock
             .addEventListener('click', function () {
                 let myChoice = {
@@ -113,6 +113,6 @@ window.onload = function () {
             }
             game(myChoice)
         })
-    }
-    main();
+    // }
+    // main();
 }

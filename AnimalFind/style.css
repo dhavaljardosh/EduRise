@@ -1,0 +1,35 @@
+body{
+    background: linear-gradient(red,pink)
+}
+
+#score-block{
+    border:3px solid black;
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
+}
+
+#play-block{
+    display: flex;
+    width:70%;
+    border:5px solid black;
+    margin:auto;
+}
+
+#play-block div img{
+    width:100%;
+}
+
+#play-block div{
+    width:50%;
+}
+
+#selection-one, #selection-two, #selection-three{
+    border:7px solid black;
+    border-radius: 20px;
+    padding:20px;
+    margin:10px;
+    cursor: pointer;
+    font-size: 40px;
+    background: white;
+}
