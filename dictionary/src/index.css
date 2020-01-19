@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Josefin+Sans:600|Satisfy&display=swap");
+body {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)
+    ),
+    url("https://images-na.ssl-images-amazon.com/images/I/71tB0T31PTL._SL1134_.jpg");
+  background-size: cover;
+  opacity: 1;
+}
+.App {
+  padding: 20px;
+}
+
+.outerBlock {
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.input-text {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.listen-button {
+  background: red;
+  border: 0px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.listen-button:focus {
+  outline-width: 0px !important;
+}
+
+.result-block {
+  width: 600px;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3), 0px 0px 15px rgba(0, 0, 0, 0.75);
+}
+
+.looking-for-block {
+  padding: 20px;
+  background-color: #1f9628;
+  color: white;
+}
+
+.lf-title {
+  font-size: 18px;
+  opacity: 0.7;
+  font-family: "Satisfy", cursive;
+}
+
+.lf-word {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.lf-meaning {
+  font-family: "Comfortaa", cursive;
+
+  font-size: 30px;
+  padding: 10px 20px;
+  color: black;
+}
+
+.for-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .for-mobile {
+    display: block;
+  }
+
+  .for-desktop {
+    display: none;
+  }
+}

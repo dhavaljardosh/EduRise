@@ -1,0 +1,28 @@
+body {
+  margin: 0px;
+}
+
+.sugg-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sugg-channel {
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  color: gray;
+}
+
+.search-box {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.footer {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
