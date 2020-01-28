@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { Icon } from "react-materialize";
+import EditProfile from "./EditProfile";
 export default () => {
   const [editMode, setEditMode] = useState(false);
+
+  const changeToFalse = () => {
+    setEditMode(false);
+  };
+
   return (
     <div className="outerBox m10">
       {editMode ? (
         <div>
-          In Edit Mode<span onClick={() => setEditMode(false)}>Back</span>
+          <EditProfile changeToFalse={changeToFalse} />
         </div>
       ) : (
         <div>

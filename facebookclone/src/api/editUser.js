@@ -1,9 +1,9 @@
 import { userRef } from "../firebase";
 
-export default userDetails => {
-  userRef.child().set({
-    firstName: "",
-    lastName: "",
-    email: ""
+export default ({ uid, firstName, lastName }) => {
+  console.log(uid);
+  userRef.child(uid).set({
+    firstName,
+    lastName
   });
 };
