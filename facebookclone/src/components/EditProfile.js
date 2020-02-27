@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { firebaseApp, storageRef } from "../firebase";
 import editUser from "../api/editUser";
 
-export default ({ changeToFalse }) => {
+export default ({ changeToFalse, userDetails }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [image, setImage] = useState("");
@@ -27,7 +27,8 @@ export default ({ changeToFalse }) => {
               uid,
               firstName,
               lastName,
-              imageURL
+              imageURL,
+              email: userDetails.email
             };
 
             const result = editUser(data);

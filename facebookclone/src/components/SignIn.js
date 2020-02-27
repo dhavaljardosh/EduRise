@@ -31,7 +31,7 @@ export default props => {
       }}
     >
       <div className="outerBox w400">
-        <h4>Sign In</h4>
+        <h4 style={{ marginBottom: 50 }}>Sign In</h4>
         <TextInput
           label="Email"
           onChange={e => onChangeText("email", e.target.value)}
@@ -39,6 +39,7 @@ export default props => {
         <TextInput
           label="Password"
           onChange={e => onChangeText("password", e.target.value)}
+          type="password"
         />
         <Button node="button" type="submit" waves="light" onClick={onSubmit}>
           Submit
@@ -49,6 +50,12 @@ export default props => {
           <span
             onClick={() => {
               props.changeState("SU");
+            }}
+            style={{
+              marginLeft: 10,
+              fontWeight: "600",
+              color: "green",
+              cursor: "pointer"
             }}
           >
             Sign Up

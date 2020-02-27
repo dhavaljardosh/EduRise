@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "materialize-css/dist/css/materialize.min.css";
 import "./App.css";
-import { firebaseApp } from "./firebase";
+import { firebaseApp, userRef } from "./firebase";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Feed from "./components/Feed";
@@ -12,12 +12,15 @@ import ProfilePage from "./components/ProfilePage";
 function App() {
   const [stage, setStage] = useState("");
   const [signUpSignIn, setSignUpSignIn] = useState("SI");
+  const [userDetails, setUserDetails] = useState({});
 
   useEffect(() => {
     firebaseApp.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
-        console.log(user.uid);
+        userRef.child(user.uid).once("value", snap => {
+          setUserDetails(snap.val());
+        });
         setStage("loggedIn");
         setSignUpSignIn("SI");
       } else {
@@ -39,7 +42,7 @@ function App() {
       <Navbar stage={stage} />
       <Router>
         <Route path="/" exact>
-          {stage === "loggedIn" && <Feed />}
+          {stage === "loggedIn" && <Feed userDetails={userDetails} />}
           {stage === "notLoggedIn" && signUpSignIn === "SI" && (
             <SignIn changeState={changeState} />
           )}

@@ -29,7 +29,6 @@ export default () => {
     <div>
       <div className="outerBox m10">
         <h6 style={{ fontWeight: 500 }}>What's in your mind?</h6>
-        {content}
         <Row style={{ marginBottom: 0 }}>
           <Textarea
             value={content}

@@ -7,12 +7,14 @@ import deletePost from "../api/deletePost";
 export default ({ details, myUID }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [imageURL, setImageURL] = useState("");
 
   useEffect(() => {
     const getName = () => {
       userRef.child(details.createdBy).once("value", snap => {
         setFirstName(snap.val()["firstName"]);
         setLastName(snap.val()["lastName"]);
+        setImageURL(snap.val()["imageURL"]);
       });
     };
     if (details && details.createdBy) {
@@ -42,7 +44,11 @@ export default ({ details, myUID }) => {
                   }}
                 >
                   <img
-                    src="https://specials-images.forbesimg.com/imageserve/5d2388f14c687b00085c0f91/416x416.jpg?background=000000&cropX1=0&cropX2=1559&cropY1=130&cropY2=1690"
+                    src={
+                      imageURL
+                        ? imageURL
+                        : "https://specials-images.forbesimg.com/imageserve/5d2388f14c687b00085c0f91/416x416.jpg?background=000000&cropX1=0&cropX2=1559&cropY1=130&cropY2=1690"
+                    }
                     alt="profile photi"
                     height="100%"
                   />

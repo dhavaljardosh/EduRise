@@ -5,12 +5,12 @@ import AddPost from "./AddPost";
 import SinglePost from "./SinglePost";
 import PostList from "./PostList";
 
-export default () => {
+export default ({ userDetails }) => {
   return (
     <Container>
       <Row>
         <Col s={12} m={4}>
-          <Profile />
+          <Profile userDetails={userDetails} />
         </Col>
         <Col s={12} m={8}>
           <AddPost />
