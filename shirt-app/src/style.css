@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Raleway&display=swap");
+@import url("https://use.typekit.net/tua0ocr.css");
+
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #2643a2;
+  font-family: "Raleway", sans-serif;
+}
+
+.navbarStyle {
+  height: 60px;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  align-items: center;
+}
+
+.rl {
+  text-decoration: none;
+  color: white;
+}
+
+.link {
+  color: "white";
+  text-decoration: none;
+}
+
+.textInputFlex {
+  display: flex;
+  align-items: center;
+}
+
+.ml15 {
+  margin-left: 15px;
+}
+
+.w100 {
+  width: 100px;
+  color: white;
+}
+
+.font1 {
+  font-family: "Kaushan Script", cursive;
+  color: whitesmoke;
+}
+
+.headerTitle {
+  font-family: "goodlife-sans-condensed", cursive;
+  font-size: 25px !important;
+}
