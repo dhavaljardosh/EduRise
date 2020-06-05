@@ -2,14 +2,14 @@ import React from "react";
 import { ListGroup } from "react-bootstrap";
 
 export default ({ videoList, changeSelection, selectedVideoId }) => {
-  const changeSelectedVideo = data => {
+  const changeSelectedVideo = (data) => {
     changeSelection(data);
   };
 
   return (
     <React.Fragment>
       {videoList.length > 0 &&
-        videoList.map(data => {
+        videoList.map((data) => {
           if (data.id !== selectedVideoId) {
             return (
               <ListGroup.Item
@@ -21,7 +21,7 @@ export default ({ videoList, changeSelection, selectedVideoId }) => {
                   style={{
                     marginBottom: 10,
                     padding: 10,
-                    display: "flex"
+                    display: "flex",
                   }}
                 >
                   <div>

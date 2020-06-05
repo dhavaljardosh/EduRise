@@ -13,7 +13,7 @@ export default ({ searchString }) => {
 
   useEffect(() => {
     const callApi = async () => {
-      const result = await youtube.searchVideos(searchString, 10);
+      const result = await youtube.searchVideos("Carry minati", 20);
       if (result.length === 0) {
         setError(true);
       } else {
@@ -27,7 +27,7 @@ export default ({ searchString }) => {
     callApi();
   }, [searchString]);
 
-  const selectedVideoCallback = videoDetail => {
+  const selectedVideoCallback = (videoDetail) => {
     setSelectedVideo(videoDetail);
   };
 
@@ -42,19 +42,21 @@ export default ({ searchString }) => {
       </Col>
       <Col xs={12} lg={4}>
         {!error && (
-          <ListGroup>
+          <React.Fragment>
             <p>Suggestions</p>
-            <Suggestions
-              videoList={videoList}
-              changeSelection={selectedVideoCallback}
-              selectedVideoId={selectedVideo.id}
-            />
-            {/* <ListGroup.Item>Cras justo odio</ListGroup.Item>
+            <ListGroup style={{ maxHeight: "80vh", overflowY: "scroll" }}>
+              <Suggestions
+                videoList={videoList}
+                changeSelection={selectedVideoCallback}
+                selectedVideoId={selectedVideo.id}
+              />
+              {/* <ListGroup.Item>Cras justo odio</ListGroup.Item>
           <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
           <ListGroup.Item>Morbi leo risus</ListGroup.Item>
           <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
           <ListGroup.Item>Vestibulum at eros</ListGroup.Item> */}
-          </ListGroup>
+            </ListGroup>
+          </React.Fragment>
         )}
       </Col>
     </React.Fragment>
