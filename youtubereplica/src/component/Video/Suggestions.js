@@ -27,7 +27,7 @@ export default ({ videoList, changeSelection, selectedVideoId }) => {
                   <div>
                     <img
                       src={data.thumbnails.medium.url}
-                      height="80px"
+                      height="60px"
                       alt="thumbnail"
                     />
                   </div>

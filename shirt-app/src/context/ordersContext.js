@@ -9,12 +9,7 @@ export const OrdersContext = createContext({
   },
 })
 const initialState = {
-  orders: [
-    {
-      id: 2,
-      content: "Demo",
-    },
-  ],
+  orders: [],
 }
 
 export const GlobalStateProvider = ({ children }) => {
@@ -23,10 +18,7 @@ export const GlobalStateProvider = ({ children }) => {
   const addOrder = order => {
     dispatch({
       type: ADD_ORDER,
-      payload: {
-        id: 21,
-        content: "How's it going?",
-      },
+      payload: order,
     })
   }
   return (

@@ -8,8 +8,9 @@ export default () => {
         Made with{" "}
         <span role="img" aria-label="heart emoji">
           ❤️
-        </span>{" "}
-        by Ramtoo.
+        </span>
+        {"  "}
+        by EduRise.
       </p>
     </Col>
   );

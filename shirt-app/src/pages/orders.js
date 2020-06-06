@@ -1,6 +1,7 @@
 import React, { useReducer, useContext } from "react"
 import { OrdersContext } from "../context/ordersContext"
 import { Link } from "gatsby"
+import SingleOrder from "../components/SingleOrder"
 
 const Orders = () => {
   const context = useContext(OrdersContext)
@@ -15,10 +16,9 @@ const Orders = () => {
         </Link>
       </div>
 
-      <div>{JSON.stringify(context)}</div>
-      {/* <button onClick={() => context.addOrder({ id: 3, content: "sdasdsd" })}>
-        click
-      </button> */}
+      {context.state.map((order, index) => (
+        <SingleOrder order={order} key={index} />
+      ))}
     </>
   )
 }

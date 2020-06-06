@@ -4,6 +4,8 @@ import SingleVideo from "./SingleVideo";
 import YouTube from "simple-youtube-api";
 import config from "../../config";
 import Suggestions from "./Suggestions";
+import playlists from "../../util/data";
+
 const youtube = new YouTube(config.apiKey);
 
 export default ({ searchString }) => {
@@ -13,7 +15,13 @@ export default ({ searchString }) => {
 
   useEffect(() => {
     const callApi = async () => {
-      const result = await youtube.searchVideos("Carry minati", 20);
+      const playlistVideos = await youtube.getPlaylist(
+        playlists[getRandomInt(playlists.length - 1)]
+      );
+
+      const videosss = await playlistVideos.getVideos();
+      console.log(videosss);
+      const result = await youtube.searchVideos("Carry minati", 1);
       if (result.length === 0) {
         setError(true);
       } else {
@@ -22,28 +30,66 @@ export default ({ searchString }) => {
       setSelectedVideo(result[0]);
 
       console.log(result);
-      setVideoList(result);
+      setVideoList(videosss);
     };
     callApi();
-  }, [searchString]);
+  }, [searchString, setSelectedVideo]);
 
   const selectedVideoCallback = (videoDetail) => {
     setSelectedVideo(videoDetail);
   };
 
+  const randomSelector = () => {
+    const currentSelected = selectedVideo;
+    console.log(currentSelected);
+    console.log(videoList);
+    let found = false;
+    while (!found) {
+      let newRandom = videoList[getRandomInt(videoList.length)];
+      if (newRandom.id !== currentSelected.id) {
+        setSelectedVideo(newRandom);
+        found = true;
+      }
+    }
+  };
+
+  const PlayRandom = () => {
+    return (
+      <div style={{ textAlign: "center" }}>
+        <img
+          src={require("../../images/buton.png")}
+          height="60px"
+          alt="button here"
+          style={{ cursor: "pointer", marginLeft: "auto" }}
+          onClick={randomSelector}
+        />
+      </div>
+    );
+  };
+
   return (
     <React.Fragment>
-      <Col xs={12} lg={8}>
+      <Col xs={12} lg={8} md={12}>
         {error ? (
           <h1>No result found, please try looking for something else.</h1>
         ) : (
           <SingleVideo detail={selectedVideo} />
         )}
       </Col>
-      <Col xs={12} lg={4}>
+      <Col xs={12} lg={4} md={12}>
         {!error && (
           <React.Fragment>
-            <p>Suggestions</p>
+            <PlayRandom />
+            <p
+              style={{
+                marginTop: 20,
+                fontWeight: 700,
+                fontSize: 30,
+                fontFamily: "roboto",
+              }}
+            >
+              FUN VIDEOS
+            </p>
             <ListGroup style={{ maxHeight: "80vh", overflowY: "scroll" }}>
               <Suggestions
                 videoList={videoList}
@@ -62,3 +108,7 @@ export default ({ searchString }) => {
     </React.Fragment>
   );
 };
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}

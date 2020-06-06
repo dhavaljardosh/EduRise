@@ -1,5 +1,6 @@
 import React, { useReducer, useContext } from "react"
 import { Link } from "gatsby"
+import "antd/dist/antd.css"
 import "../style.css"
 import { OrdersContext } from "../context/ordersContext"
 import OrdersReducer from "../context/ordersReducers"
@@ -38,8 +39,9 @@ const IndexPage = props => {
           Orders
         </Link>
       </div>
-      {JSON.stringify(context)}
-      <Customization />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Customization />
+      </div>
     </>
   )
 }
